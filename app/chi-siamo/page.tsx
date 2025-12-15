@@ -1,3 +1,4 @@
+import CalcolatoreRata from "@/components/CalcolatoreRata";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,6 +21,7 @@ export default function ChiSiamoPage() {
 
       {/* SEZIONE 1: HERO EMOZIONALE */}
       <section className="relative h-[60vh] flex items-center justify-center">
+      
         {/* Immagine di sfondo */}
         <Image 
             src="/about-hero.jpg" // Assicurati di avere questa immagine in public
@@ -30,7 +32,7 @@ export default function ChiSiamoPage() {
         />
         {/* Overlay scuro per leggere il testo */}
         <div className="absolute inset-0 bg-blue-900/70"></div>
-        
+        <CalcolatoreRata />
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
           <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
             Non siamo una Banca.<br/>Siamo i tuoi alleati.
@@ -38,7 +40,39 @@ export default function ChiSiamoPage() {
 
 <section className="bg-blue-900 text-white py-16 md:py-24 overflow-hidden">
   <div className="container mx-auto px-4 text-center">
-    
+    {/* HERO SECTION AGGIORNATA CON CALCOLATORE */}
+      <section className="bg-blue-900 text-white py-12 md:py-20 relative overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            
+            {/* PARTE SINISTRA: TESTO */}
+            <div className="md:w-1/2 text-center md:text-left">
+              <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+                Il Credito su Misura, <br /> <span className="text-yellow-400">Semplice e Veloce.</span>
+              </h1>
+              <p className="text-lg md:text-xl mb-8 text-blue-100 max-w-xl mx-auto md:mx-0">
+                Confrontiamo per te le migliori offerte di Mutui e Prestiti. 
+                Trova la rata perfetta in meno di 30 secondi.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                 <a href="#prodotti" className="border-2 border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-blue-900 transition">
+                  Scopri i Prodotti
+                 </a>
+                 <div className="flex items-center gap-2 text-sm text-blue-200 mt-2 sm:mt-0">
+                    ✅ Esito in 24h
+                 </div>
+              </div>
+            </div>
+
+            {/* PARTE DESTRA: CALCOLATORE */}
+            <div className="md:w-1/2 w-full mt-8 md:mt-0">
+                <CalcolatoreRata />
+            </div>
+
+          </div>
+        </div>
+      </section>
     {/* TITOLO ANIMATO */}
     <motion.h1 
       initial={{ opacity: 0, y: 50 }}      // Parte invisibile e spostato in basso
