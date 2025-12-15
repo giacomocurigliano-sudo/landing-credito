@@ -23,7 +23,11 @@ export default function Home() {
           <nav className="hidden md:flex gap-8 font-medium text-gray-600">
             <a href="#" className="hover:text-blue-900 transition">Home</a>
             <a href="#prodotti" className="hover:text-blue-900 transition">Prodotti</a>
-            <a href="#chi-siamo" className="hover:text-blue-900 transition">Chi Siamo</a>
+            {/* Devi importare Link in alto nel file: import Link from "next/link"; */}
+
+<Link href="/chi-siamo" className="hover:text-blue-900 transition">
+  Chi Siamo
+</Link>
           </nav>
 
           {/* Bottone Chiama */}
