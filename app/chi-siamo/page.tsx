@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -33,6 +34,34 @@ export default function ChiSiamoPage() {
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
           <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
             Non siamo una Banca.<br/>Siamo i tuoi alleati.
+         {/* Importalo in cima: import { motion } from "framer-motion"; */}
+
+<section className="bg-blue-900 text-white py-16 md:py-24 overflow-hidden">
+  <div className="container mx-auto px-4 text-center">
+    
+    {/* TITOLO ANIMATO */}
+    <motion.h1 
+      initial={{ opacity: 0, y: 50 }}      // Parte invisibile e spostato in basso
+      animate={{ opacity: 1, y: 0 }}       // Diventa visibile e sale
+      transition={{ duration: 0.8, ease: "easeOut" }} // Ci mette 0.8 secondi
+      className="text-3xl md:text-6xl font-extrabold mb-6 leading-tight"
+    >
+      Il Mutuo su Misura, <br /> Approvato in 24h.
+    </motion.h1>
+
+    {/* SOTTOTITOLO ANIMATO (con ritardo) */}
+    <motion.p 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.5, duration: 0.8 }} // Parte dopo mezzo secondo
+      className="text-lg md:text-xl mb-8 text-blue-100 max-w-2xl mx-auto"
+    >
+      Analizziamo oltre 20 banche per trovare il tasso più basso del mercato. 
+    </motion.p>
+    
+    {/* ... resto del codice (form contatti ecc) ... */}
+  </div>
+</section>
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto text-blue-100">
             Trasformiamo il "NO" della burocrazia nel "SÌ" che realizza i tuoi progetti di vita.
