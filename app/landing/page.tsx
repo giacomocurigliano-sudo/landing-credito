@@ -32,12 +32,14 @@ export default function LandingHomeCreditOne() {
       <main className="min-h-screen bg-white text-[#0F1E38] font-sans selection:bg-[#C1A673] selection:text-white overflow-hidden">
       
       {/* =================================================================================
-          1. HERO SECTION
+          1. HERO SECTION - COLORE AGGIORNATO AL ROSSO RUBINO
          ================================================================================= */}
-      <section className="relative bg-[#0F1E38] text-white overflow-hidden min-h-[85vh] flex items-center">
+      {/* MODIFICA QUI: Cambiato bg-[#0F1E38] (blu) con un rosso rubino simile all'immagine #9E1B32 */}
+      <section className="relative bg-[#9E1B32] text-white overflow-hidden min-h-[85vh] flex items-center">
         
-        {/* SFONDO (Placeholder sicuro: Gradiente invece di immagine) */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#0F1E38] to-[#1a2b4a]">
+        {/* SFONDO (Placeholder sicuro: Gradiente aggiornato) */}
+        {/* MODIFICA QUI: Aggiornato anche il gradiente per partire dal nuovo rosso */}
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#9E1B32] to-[#6D1222]">
             {/* Sostituisci questo DIV con il tag <Image ... /> quando avrai la foto */}
             <div className="absolute inset-0 opacity-10 bg-[url('https://via.placeholder.com/1920x1080')] bg-cover bg-center"></div> 
         </div>
