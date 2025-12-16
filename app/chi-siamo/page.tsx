@@ -17,10 +17,18 @@ export default function Home() {
       <header className="bg-white py-6 sticky top-0 z-50 border-b border-gray-100 shadow-sm">
         <div className="container mx-auto px-4 flex justify-between items-center">
           
-          {/* LOGO (Visibile sia su Mobile che Desktop) */}
-          <Link href="/" className="flex items-center mr-8">
-             <Image src="/logo.png" alt="Logo" width={160} height={50} className="h-10 w-auto object-contain" priority />
-          </Link>
+          {/* LOGO - Versione Debug */}
+          <div className="flex items-center">
+             <Link href="/" className="flex items-center mr-8">
+                {/* Usiamo il tag img classico per essere sicuri al 100% che lo carichi */}
+                <img 
+                    src="/brand.png" 
+                    alt="Credit-One Logo" 
+                    className="h-10 w-auto object-contain" 
+                />
+                {/* Se l'immagine non si carica, mostriamo il testo come riserva */}
+                <span className="ml-2 text-xl font-extrabold text-[#0F1E38] md:hidden">CREDIT-ONE</span>
+             </Link>
           </div>
 
           {/* MENU DESKTOP CENTRATO */}
