@@ -1,317 +1,241 @@
 import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
+export default function LandingHomeCreditOne() {
   return (
-    <main className="min-h-screen bg-gray-50 text-[#0F1E38] font-sans">
+    <main className="min-h-screen bg-white text-[#0F1E38] font-sans selection:bg-[#C1A673] selection:text-white">
       
       {/* =================================================================================
-          1. HERO SECTION (Moderna e Istituzionale)
+          1. HERO SECTION (Potente & Istituzionale)
+          Colore: Blu Notte profondo delle immagini
          ================================================================================= */}
-      <section className="relative bg-[#0F1E38] text-white overflow-hidden">
-        {/* Sfondo con immagine e overlay */}
-        <div className="absolute inset-0 z-0">
-            {/* Assicurati di caricare un'immagine di sfondo chiamata 'hero-bg.jpg' in public */}
-            <div className="w-full h-full bg-[url('/hero-bg.jpg')] bg-cover bg-center opacity-40 mix-blend-overlay"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0F1E38] via-[#0F1E38]/90 to-transparent"></div>
+      <section className="relative bg-[#0F1E38] text-white overflow-hidden min-h-[85vh] flex items-center">
+        {/* Sfondo Astratto Tecnologico */}
+        <div className="absolute inset-0 z-0 opacity-40">
+             {/* Se hai l'immagine "technology" usala qui, altrimenti questo gradiente simula l'effetto */}
+             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-[#1a3b6e] via-[#0F1E38] to-[#050a14]"></div>
         </div>
 
-        <div className="container mx-auto px-6 py-24 lg:py-36 relative z-10">
-          <div className="max-w-3xl space-y-8">
-            <h1 className="text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
-              LA PIÙ COMPLETA OFFERTA DI SERVIZI FINANZIARI PER CITTADINI E IMPRESE.
+        <div className="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8 animate-fade-in-up">
+            <div className="inline-flex items-center gap-2 px-3 py-1 border border-[#C1A673] text-[#C1A673] rounded text-xs font-bold tracking-widest uppercase">
+                <span className="w-2 h-2 bg-[#C1A673] rounded-full"></span>
+                Credit-One S.p.A.
+            </div>
+            <h1 className="text-5xl lg:text-7xl font-extrabold leading-tight tracking-tight">
+              LA TUA RETE <br/>
+              DI <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C1A673] to-[#F2E5C8]">ECCELLENZA.</span>
             </h1>
-            <p className="text-xl text-blue-100/90 font-light leading-relaxed border-l-4 border-[#C1A673] pl-6">
-              Solidi e performanti sul mercato, con la più ampia scelta di prodotti e servizi.
+            <p className="text-xl text-blue-100/80 font-light leading-relaxed max-w-lg border-l-4 border-[#C1A673] pl-6">
+              Un ecosistema finanziario unico per imprese e famiglie. 
+              La più completa offerta di servizi sul mercato.
             </p>
             
-            <div className="pt-8">
-                 <a href="#contatti" className="bg-[#C1A673] text-[#0F1E38] px-10 py-4 rounded-full font-bold hover:bg-white hover:scale-105 transition-all duration-300 shadow-[0_10px_20px_rgba(193,166,115,0.3)] uppercase tracking-wider inline-block">
-                  Richiedi Finanziamento
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                 <a href="#contatti" className="bg-[#C1A673] text-[#0F1E38] px-10 py-5 rounded font-bold hover:bg-white transition-all duration-300 shadow-[0_10px_30px_rgba(193,166,115,0.2)] text-lg uppercase tracking-wider text-center">
+                  Richiedi Consulenza
                  </a>
             </div>
           </div>
-        </div>
-
-        {/* Elemento Decorativo Robot (Opzionale) */}
-        <div className="absolute bottom-0 right-10 lg:right-32 transform translate-y-1/4 z-20 hidden lg:block">
-            <div className="w-64 h-64 bg-gradient-to-t from-[#0F1E38] to-transparent rounded-full flex items-center justify-center p-2">
-                 {/* Se hai l'immagine del robot caricala come robot.png */}
-                 {/* <Image src="/robot.png" alt="AI Finanziaria" width={200} height={200} className="object-contain drop-shadow-2xl" /> */}
-            </div>
+          
+          {/* Elemento Visivo (Robot/Tech) */}
+          <div className="relative hidden md:block">
+              {/* Cerchi decorativi stile "tech" */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-white/10 rounded-full animate-[spin_10s_linear_infinite]"></div>
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] border border-[#C1A673]/30 rounded-full"></div>
+              
+              {/* Qui andrebbe l'immagine del Robot/Tech se presente in public */}
+              <div className="relative z-10 bg-gradient-to-tr from-white/10 to-transparent backdrop-blur-sm p-8 rounded-2xl border border-white/20 shadow-2xl">
+                 <div className="text-center">
+                    <p className="text-4xl font-bold text-white mb-2">24h</p>
+                    <p className="text-sm text-gray-300 uppercase tracking-widest">Valutazione Istantanea</p>
+                 </div>
+              </div>
+          </div>
         </div>
       </section>
 
       {/* =================================================================================
-          2. SERVIZI (Grid Cards Potente)
+          2. ECOSISTEMA (Griglia Servizi - Stile Immagini fornite)
+          Colori: Sfondi chiari con accenti Rossi (#D32F2F) e Blu (#0F1E38)
          ================================================================================= */}
-      <section id="servizi" className="py-24 bg-white container mx-auto px-6">
-        <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0F1E38]">La nostra <span className="text-[#D32F2F]">Offerta Finanziaria</span></h2>
-            <p className="text-gray-500 mt-4 max-w-2xl mx-auto">Disponiamo della più vasta offerta di prodotti e servizi. Un ecosistema unico per imprese e famiglie.</p>
+      <section id="servizi" className="py-24 bg-gray-50 container mx-auto px-6">
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#0F1E38] mb-6">La nostra <span className="text-[#D32F2F]">Offerta Finanziaria</span></h2>
+            <p className="text-gray-600 text-lg">Incrociando tecnologia e competenze dei nostri analisti, ricevi la soluzione adeguata in pochi istanti.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           
-          {/* Card 1: Leasing */}
-          <div className="group bg-gray-50 p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#0F1E38] relative overflow-hidden">
-            <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform text-[#0F1E38]">
-                🚗
+          {/* Card 1: Leasing (Rosso Chiaro) */}
+          <div className="group bg-[#FFF5F5] p-8 rounded-xl hover:shadow-xl transition-all duration-300 border-l-4 border-transparent hover:border-[#D32F2F] relative overflow-hidden">
+            <div className="flex items-center justify-between mb-6">
+                <span className="w-10 h-10 bg-[#D32F2F] text-white flex items-center justify-center font-bold rounded">A</span>
+                <span className="text-3xl text-[#D32F2F]">🚗</span>
             </div>
-            <h3 className="text-xl font-bold mb-3 text-[#0F1E38]">LEASING</h3>
-            <p className="text-gray-600 leading-relaxed">Per la tua impresa: veicolare, strumentale, immobiliare.</p>
-            <div className="mt-6 flex items-center text-[#C1A673] font-bold text-sm uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
-                Scopri di più →
-            </div>
+            <h3 className="text-xl font-bold mb-3 text-[#D32F2F] uppercase tracking-wide">LEASING</h3>
+            <p className="text-gray-600 leading-relaxed text-sm">Per la tua impresa: veicolare, strumentale, immobiliare.</p>
           </div>
 
-          {/* Card 2: Anticipo T.F.S. */}
-          <div className="group bg-gray-50 p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#0F1E38] relative overflow-hidden">
-            <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform text-[#0F1E38]">
-                ⚖️
+          {/* Card 2: Anticipo T.F.S. (Blu Chiaro) */}
+          <div className="group bg-[#F0F4F8] p-8 rounded-xl hover:shadow-xl transition-all duration-300 border-l-4 border-transparent hover:border-[#0F1E38] relative overflow-hidden">
+             <div className="flex items-center justify-between mb-6">
+                <span className="w-10 h-10 bg-[#0F1E38] text-white flex items-center justify-center font-bold rounded">B</span>
+                <span className="text-3xl text-[#0F1E38]">⚖️</span>
             </div>
-            <h3 className="text-xl font-bold mb-3 text-[#0F1E38]">ANTICIPO T.F.S./T.F.R.</h3>
-            <p className="text-gray-600 leading-relaxed">Non attendere i tempi burocratici: anticipiamo noi la liquidità ed in pochi giorni è tua.</p>
-            <div className="mt-6 flex items-center text-[#C1A673] font-bold text-sm uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
-                Richiedi ora →
-            </div>
+            <h3 className="text-xl font-bold mb-3 text-[#0F1E38] uppercase tracking-wide">ANTICIPO T.F.S.</h3>
+            <p className="text-gray-600 leading-relaxed text-sm">Non attendere, anticipiamo noi il tuo TFS ed in pochi giorni è tuo.</p>
           </div>
           
-          {/* Card 3: Mutuo */}
-          <div className="group bg-gray-50 p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#0F1E38] relative overflow-hidden">
-            <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform text-[#0F1E38]">
-                🏠
+          {/* Card 3: Mutuo (Rosso Chiaro) */}
+          <div className="group bg-[#FFF5F5] p-8 rounded-xl hover:shadow-xl transition-all duration-300 border-l-4 border-transparent hover:border-[#D32F2F] relative overflow-hidden">
+            <div className="flex items-center justify-between mb-6">
+                <span className="w-10 h-10 bg-[#D32F2F] text-white flex items-center justify-center font-bold rounded">C</span>
+                <span className="text-3xl text-[#D32F2F]">🏠</span>
             </div>
-            <h3 className="text-xl font-bold mb-3 text-[#0F1E38]">MUTUO CASA</h3>
-            <p className="text-gray-600 leading-relaxed">Il mutuo su misura con predelibera in pochi giorni. Tassi esclusivi.</p>
-            <div className="mt-6 flex items-center text-[#C1A673] font-bold text-sm uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
-                Calcola rata →
-            </div>
+            <h3 className="text-xl font-bold mb-3 text-[#D32F2F] uppercase tracking-wide">MUTUO</h3>
+            <p className="text-gray-600 leading-relaxed text-sm">Il mutuo per la tua casa, con predelibera in pochi giorni.</p>
           </div>
 
-          {/* Card 4: Factoring */}
-          <div className="group bg-gray-50 p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#0F1E38] relative overflow-hidden">
-            <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform text-[#0F1E38]">
-                📊
+          {/* Card 4: Factoring (Blu Chiaro) */}
+          <div className="group bg-[#F0F4F8] p-8 rounded-xl hover:shadow-xl transition-all duration-300 border-l-4 border-transparent hover:border-[#0F1E38] relative overflow-hidden">
+             <div className="flex items-center justify-between mb-6">
+                <span className="w-10 h-10 bg-[#0F1E38] text-white flex items-center justify-center font-bold rounded">D</span>
+                <span className="text-3xl text-[#0F1E38]">📊</span>
             </div>
-            <h3 className="text-xl font-bold mb-3 text-[#0F1E38]">FACTORING</h3>
-            <p className="text-gray-600 leading-relaxed">Smobilizza i tuoi crediti commerciali ed ottieni liquidità immediata per la tua impresa.</p>
-            <div className="mt-6 flex items-center text-[#C1A673] font-bold text-sm uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
-                Approfondisci →
-            </div>
+            <h3 className="text-xl font-bold mb-3 text-[#0F1E38] uppercase tracking-wide">FACTORING</h3>
+            <p className="text-gray-600 leading-relaxed text-sm">Smobilizza i tuoi crediti ed ottieni liquidità per la tua impresa.</p>
           </div>
 
-          {/* Card 5: Prestito Personale (Evidenziato) */}
-          <div className="group bg-red-50 p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 border border-red-100 hover:border-[#D32F2F] relative overflow-hidden">
-            <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform text-[#D32F2F]">
-                👤
+          {/* Card 5: Prestito Personale (Rosso Chiaro) */}
+          <div className="group bg-[#FFF5F5] p-8 rounded-xl hover:shadow-xl transition-all duration-300 border-l-4 border-transparent hover:border-[#D32F2F] relative overflow-hidden">
+            <div className="flex items-center justify-between mb-6">
+                <span className="w-10 h-10 bg-[#D32F2F] text-white flex items-center justify-center font-bold rounded">E</span>
+                <span className="text-3xl text-[#D32F2F]">👤</span>
             </div>
-            <h3 className="text-xl font-bold mb-3 text-[#D32F2F]">PRESTITO PERSONALE</h3>
-            <p className="text-gray-600 leading-relaxed">Per dipendenti, autonomi e pensionati. Fino a 50.000€ con esito veloce.</p>
-            <div className="mt-6 flex items-center text-[#D32F2F] font-bold text-sm uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
-                Preventivo veloce →
-            </div>
+            <h3 className="text-xl font-bold mb-3 text-[#D32F2F] uppercase tracking-wide">PRESTITO PERSONALE</h3>
+            <p className="text-gray-600 leading-relaxed text-sm">Per dipendenti ed autonomi fino a 50.000€.</p>
           </div>
           
-          {/* Card 6: Cessione del Quinto */}
-          <div className="group bg-red-50 p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 border border-red-100 hover:border-[#D32F2F] relative overflow-hidden">
-            <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform text-[#D32F2F]">
-                💼
+          {/* Card 6: Carta di Credito (Blu Chiaro) */}
+          <div className="group bg-[#F0F4F8] p-8 rounded-xl hover:shadow-xl transition-all duration-300 border-l-4 border-transparent hover:border-[#0F1E38] relative overflow-hidden">
+             <div className="flex items-center justify-between mb-6">
+                <span className="w-10 h-10 bg-[#0F1E38] text-white flex items-center justify-center font-bold rounded">F</span>
+                <span className="text-3xl text-[#0F1E38]">💳</span>
             </div>
-            <h3 className="text-xl font-bold mb-3 text-[#D32F2F]">CESSIONE DEL QUINTO</h3>
-            <p className="text-gray-600 leading-relaxed">La soluzione garantita per dipendenti e pensionati. Rata fissa e trattenuta diretta.</p>
-            <div className="mt-6 flex items-center text-[#D32F2F] font-bold text-sm uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
-                Verifica fattibilità →
-            </div>
+            <h3 className="text-xl font-bold mb-3 text-[#0F1E38] uppercase tracking-wide">CARTA DI CREDITO</h3>
+            <p className="text-gray-600 leading-relaxed text-sm">Per le imprese che vogliono gestire al meglio i pagamenti.</p>
           </div>
 
         </div>
       </section>
 
       {/* =================================================================================
-          3. STATS BAR (Lo dicono i numeri)
+          3. I NUMERI (Sfondo Grigio/Blu come immagine)
          ================================================================================= */}
-      <section className="relative py-20 bg-gray-900 overflow-hidden">
-        {/* Immagine sfondo sfumata */}
-        <div className="absolute inset-0 opacity-20">
-             <div className="absolute inset-0 bg-[url('/building.jpg')] bg-cover bg-center"></div>
-        </div>
-        
-        <div className="container mx-auto px-6 relative z-10 text-center">
-            <h2 className="text-3xl font-bold text-white mb-16">Lo dicono <span className="text-[#D32F2F]">i numeri</span></h2>
+      <section className="relative py-24 bg-gradient-to-b from-gray-100 to-white overflow-hidden text-center">
+        <div className="container mx-auto px-6 relative z-10">
+            <h2 className="text-3xl font-bold text-[#0F1E38] mb-12">Lo dicono <span className="text-[#D32F2F]">i numeri</span></h2>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div className="p-4 border border-gray-700 rounded-lg bg-gray-800/50 backdrop-blur-sm">
-                    <div className="text-[#C1A673] text-4xl mb-2">📂</div>
-                    <p className="text-4xl md:text-5xl font-extrabold text-white mb-2">12.365</p>
-                    <p className="text-sm text-gray-400 uppercase tracking-widest font-medium">Richieste lavorate</p>
-                </div>
-                <div className="p-4 border border-gray-700 rounded-lg bg-gray-800/50 backdrop-blur-sm">
-                    <div className="text-[#C1A673] text-4xl mb-2">📊</div>
-                    <p className="text-4xl md:text-5xl font-extrabold text-white mb-2">9.526</p>
-                    <p className="text-sm text-gray-400 uppercase tracking-widest font-medium">Clienti soddisfatti</p>
-                </div>
-                <div className="p-4 border border-gray-700 rounded-lg bg-gray-800/50 backdrop-blur-sm">
-                    <div className="text-[#C1A673] text-4xl mb-2">👤</div>
-                    <p className="text-4xl md:text-5xl font-extrabold text-white mb-2">2.500</p>
-                    <p className="text-sm text-gray-400 uppercase tracking-widest font-medium">Pratiche annue</p>
-                </div>
-                <div className="p-4 border border-gray-700 rounded-lg bg-gray-800/50 backdrop-blur-sm">
-                    <div className="text-[#C1A673] text-4xl mb-2">😊</div>
-                    <p className="text-4xl md:text-5xl font-extrabold text-white mb-2">99%</p>
-                    <p className="text-sm text-gray-400 uppercase tracking-widest font-medium">Soddisfazione</p>
-                </div>
-            </div>
-
-            <div className="mt-12">
-                <a href="#lavoraconnoi" className="inline-block bg-[#D32F2F] text-white font-bold py-3 px-8 rounded-md hover:bg-red-700 transition shadow-lg">
-                    Lavora con noi
-                </a>
-            </div>
-        </div>
-      </section>
-
-      {/* =================================================================================
-          4. VIDEO & QUOTE SECTION (Perché facciamo le cose per bene)
-         ================================================================================= */}
-      <section className="py-24 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col lg:flex-row gap-12 items-stretch">
-            
-            {/* Video Box */}
-            <div className="w-full lg:w-1/2 bg-black rounded-2xl shadow-2xl flex items-center justify-center relative overflow-hidden group min-h-[300px]">
-                 <div className="absolute inset-0 bg-neutral-900 flex flex-col items-center justify-center text-white">
-                    <div className="w-16 h-16 bg-[#FF0000] rounded-2xl flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(255,0,0,0.5)] cursor-pointer hover:scale-110 transition-transform">
-                        <svg className="w-8 h-8 text-white fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                    </div>
-                    <span className="font-medium tracking-wide">Guarda il video di presentazione</span>
-                 </div>
-            </div>
-
-            {/* Quote Box Scuro */}
-            <div className="w-full lg:w-1/2 bg-[#222222] p-12 rounded-2xl shadow-xl text-white flex flex-col justify-center relative overflow-hidden">
-                <div className="absolute top-0 right-0 p-8 opacity-10">
-                    <svg className="w-32 h-32 text-white fill-current" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.01697 21L5.01697 18C5.01697 16.8954 5.9124 16 7.01697 16H10.017C10.5693 16 11.017 15.5523 11.017 15V9C11.017 8.44772 10.5693 8 10.017 8H6.01697C5.46468 8 5.01697 8.44772 5.01697 9V11C5.01697 11.5523 4.56925 12 4.01697 12H3.01697V5H13.017V15C13.017 18.3137 10.3307 21 7.01697 21H5.01697Z"/></svg>
-                </div>
-                
-                <h3 className="text-3xl font-bold mb-6">Perché facciamo <span className="text-white border-b-2 border-white/20 pb-1">le cose</span> <span className="text-gray-400">per bene!</span></h3>
-                <blockquote className="text-xl font-light italic leading-relaxed text-gray-300 mb-8 border-l-4 border-[#C1A673] pl-6">
-                    "Le cose non vanno fatte bene, ma molto bene!"
-                </blockquote>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-12 max-w-5xl mx-auto">
                 <div>
-                    <p className="font-bold text-white text-lg">Giacomo Curigliano</p>
-                    <p className="text-sm text-[#C1A673] uppercase tracking-wider">(CEO)</p>
+                    <div className="text-[#D32F2F] text-5xl mb-4 mx-auto">📂</div>
+                    <p className="text-4xl md:text-5xl font-extrabold text-[#D32F2F] mb-2">12365</p>
+                    <p className="text-sm text-gray-500 uppercase tracking-widest">Richieste lavorate</p>
+                </div>
+                <div>
+                    <div className="text-[#D32F2F] text-5xl mb-4 mx-auto">📊</div>
+                    <p className="text-4xl md:text-5xl font-extrabold text-[#D32F2F] mb-2">9526</p>
+                    <p className="text-sm text-gray-500 uppercase tracking-widest">Clienti</p>
+                </div>
+                <div>
+                    <div className="text-[#D32F2F] text-5xl mb-4 mx-auto">👤</div>
+                    <p className="text-4xl md:text-5xl font-extrabold text-[#D32F2F] mb-2">2500</p>
+                    <p className="text-sm text-gray-500 uppercase tracking-widest">Pratiche annue</p>
+                </div>
+                <div>
+                    <div className="text-[#D32F2F] text-5xl mb-4 mx-auto">😊</div>
+                    <p className="text-4xl md:text-5xl font-extrabold text-[#D32F2F] mb-2">99%</p>
+                    <p className="text-sm text-gray-500 uppercase tracking-widest">Soddisfazione</p>
                 </div>
             </div>
-          </div>
+             <div className="mt-16">
+                 <a href="#lavora" className="bg-[#D32F2F] text-white px-8 py-3 rounded font-bold hover:bg-[#b01e1e] transition-colors shadow-lg">Lavora con noi</a>
+             </div>
         </div>
       </section>
 
       {/* =================================================================================
-          5. GRUPPO E DIVISIONI (Layout Circolare)
+          4. GRUPPO E DIVISIONI (Il meglio di noi)
          ================================================================================= */}
-      <section className="py-24 bg-white text-center">
+      <section className="py-24 bg-white text-center border-t border-gray-100">
         <div className="container mx-auto px-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0F1E38] mb-4">Gruppo e <span className="text-[#D32F2F]">Divisioni</span></h2>
-            <p className="text-gray-500 mb-16">Un network integrato di eccellenze al tuo servizio</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0F1E38] mb-4">Il meglio <span className="text-[#D32F2F]">di noi</span></h2>
+            <p className="text-gray-500 mb-16 uppercase tracking-widest text-sm">Quello che stavi cercando, adesso c'è</p>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8 items-center justify-center max-w-5xl mx-auto">
-                 {/* Qui dovresti inserire i loghi delle varie divisioni (ReBuilding, AssiOne, ecc.)
-                     Usa dei placeholder eleganti per ora */}
-                 {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-                    <div key={item} className="h-24 bg-white border border-gray-100 rounded-xl shadow-sm flex items-center justify-center p-4 hover:shadow-md transition hover:-translate-y-1">
-                        <span className="text-gray-400 font-bold">Partner Logo {item}</span>
-                    </div>
+            <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-8 opacity-80">
+                 {/* Placeholder loghi divisioni - Stile pulito */}
+                 {[1, 2, 3, 4, 5, 6].map((i) => (
+                     <div key={i} className="w-40 h-20 bg-gray-50 border border-gray-200 rounded-lg flex items-center justify-center font-bold text-gray-400">
+                         LOGO PARTNER
+                     </div>
                  ))}
             </div>
         </div>
       </section>
 
       {/* =================================================================================
-          6. ULTIME NEWS (Design a schede)
+          5. NEWS & BLOG
          ================================================================================= */}
       <section className="py-24 bg-gray-50">
         <div className="container mx-auto px-6">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
-                <div>
-                    <h2 className="text-3xl font-bold text-[#0F1E38]">Ultime <span className="text-[#D32F2F]">news</span></h2>
-                    <p className="text-gray-500 mt-2">Resta aggiornato sul mondo del credito e della finanza.</p>
-                </div>
-                <a href="#blog" className="text-[#0F1E38] font-bold hover:text-[#D32F2F] transition underline">Vedi tutte le news</a>
-            </div>
+            <h2 className="text-3xl font-bold text-[#0F1E38] mb-12">Ultime <span className="text-[#D32F2F]">news</span></h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                 {/* News Card 1 */}
-                 <div className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow overflow-hidden group">
-                    <div className="h-56 bg-gray-200 relative overflow-hidden">
-                        {/* Placeholder Immagine News */}
-                        <div className="absolute inset-0 bg-gray-300 flex items-center justify-center text-gray-500">Immagine News</div>
-                    </div>
-                    <div className="p-8">
-                        <h3 className="font-bold text-xl text-[#0F1E38] mb-3 group-hover:text-[#D32F2F] transition-colors leading-tight">Accesso al credito e Rating Aziendale</h3>
-                        <p className="text-gray-500 mb-6 text-sm line-clamp-3">L'importanza degli accordi di Basilea e come influenzano l'accesso al credito per le PMI italiane nel contesto attuale...</p>
-                        <span className="text-[#D32F2F] font-bold text-sm uppercase tracking-wider flex items-center gap-2">
-                            Leggi l'articolo <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                        </span>
-                    </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                 {/* News Card Grande */}
+                 <div className="bg-white p-8 rounded-xl shadow-sm border-l-4 border-[#D32F2F]">
+                    <h3 className="font-bold text-2xl text-[#0F1E38] mb-4 leading-tight">Accesso al credito, gli accordi di Basilea e l'importanza del rating aziendale</h3>
+                    <p className="text-gray-500 mb-6 leading-relaxed">
+                        Un'analisi approfondita su come le normative internazionali influenzano la capacità delle PMI italiane di accedere alla liquidità necessaria per la crescita.
+                    </p>
+                    <a href="#" className="text-[#D32F2F] font-bold text-sm uppercase tracking-wider hover:underline">Leggi articolo →</a>
                  </div>
 
-                 {/* News Card 2 */}
-                 <div className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow overflow-hidden group">
-                    <div className="h-56 bg-gray-200 relative overflow-hidden">
-                         <div className="absolute inset-0 bg-gray-300 flex items-center justify-center text-gray-500">Immagine News</div>
-                    </div>
-                    <div className="p-8">
-                        <h3 className="font-bold text-xl text-[#0F1E38] mb-3 group-hover:text-[#D32F2F] transition-colors leading-tight">La consulenza che ti fa stare tranquillo</h3>
-                        <p className="text-gray-500 mb-6 text-sm line-clamp-3">I nostri professionisti studiano costantemente le migliori soluzioni sul mercato per garantire serenità e risultati...</p>
-                        <span className="text-[#D32F2F] font-bold text-sm uppercase tracking-wider flex items-center gap-2">
-                            Leggi l'articolo <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                        </span>
-                    </div>
-                 </div>
-
-                 {/* News Card 3 */}
-                 <div className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow overflow-hidden group">
-                    <div className="h-56 bg-gray-200 relative overflow-hidden">
-                         <div className="absolute inset-0 bg-gray-300 flex items-center justify-center text-gray-500">Immagine News</div>
-                    </div>
-                    <div className="p-8">
-                        <h3 className="font-bold text-xl text-[#0F1E38] mb-3 group-hover:text-[#D32F2F] transition-colors leading-tight">Il futuro della Mediazione Creditizia</h3>
-                        <p className="text-gray-500 mb-6 text-sm line-clamp-3">Come la tecnologia sta cambiando il rapporto tra banche, mediatori e clienti finali. Le nuove sfide del 2025...</p>
-                        <span className="text-[#D32F2F] font-bold text-sm uppercase tracking-wider flex items-center gap-2">
-                            Leggi l'articolo <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                        </span>
-                    </div>
+                 {/* News Card Grande */}
+                 <div className="bg-white p-8 rounded-xl shadow-sm border-l-4 border-[#0F1E38]">
+                    <h3 className="font-bold text-2xl text-[#0F1E38] mb-4 leading-tight">La consulenza che ti fa stare tranquillo...</h3>
+                    <p className="text-gray-500 mb-6 leading-relaxed">
+                        Forti dell'esperienza e di alte competenze, i professionisti studiano costantemente le migliori soluzioni sul mercato.
+                    </p>
+                    <a href="#" className="text-[#0F1E38] font-bold text-sm uppercase tracking-wider hover:underline">Leggi articolo →</a>
                  </div>
             </div>
         </div>
       </section>
 
       {/* =================================================================================
-          7. CTA BANNER (Lavora con noi)
+          6. CTA FINALE (Scura e Potente)
          ================================================================================= */}
-      <section className="py-20 bg-[#0F1E38] relative overflow-hidden">
-         {/* Pattern geometrico sfondo */}
-         <div className="absolute inset-0 opacity-5 pointer-events-none">
-            <svg width="100%" height="100%">
-                <defs>
-                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="1"/>
-                    </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#grid)" />
-            </svg>
-         </div>
-         
-         <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between relative z-10">
-            <div className="mb-8 md:mb-0 text-center md:text-left max-w-xl">
-                <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">Vuoi far parte del nostro successo?</h2>
-                <h3 className="text-2xl text-[#C1A673] font-bold mb-4">Lavora con noi</h3>
-                <p className="text-blue-200 text-lg">Entra in una rete altamente specializzata. Plasma il futuro del credito insieme a Credit-One.</p>
+      <section id="contatti" className="py-20 bg-[#0F1E38] relative overflow-hidden text-center">
+         <div className="container mx-auto px-6 relative z-10">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6">Pronto a partire?</h2>
+            <div className="w-24 h-1 bg-[#C1A673] mx-auto mb-8"></div>
+            <p className="text-blue-200 text-xl mb-12 max-w-2xl mx-auto">
+                Entra in Credit-One. La solidità di un gruppo, l'agilità di un partner digitale.
+            </p>
+            
+            <div className="flex flex-col md:flex-row justify-center gap-6">
+                <a href="tel:800123456" className="bg-[#C1A673] text-[#0F1E38] px-12 py-5 rounded font-bold hover:bg-white transition-all duration-300 shadow-xl text-lg uppercase tracking-widest">
+                    Chiama Ora
+                </a>
+                <a href="mailto:info@credit-one.it" className="border border-white text-white px-12 py-5 rounded font-bold hover:bg-white hover:text-[#0F1E38] transition-all duration-300 text-lg uppercase tracking-widest">
+                    Invia Email
+                </a>
             </div>
-            <a href="#carriere" className="group inline-flex items-center gap-4 bg-transparent border-2 border-[#C1A673] text-[#C1A673] px-10 py-4 rounded-full font-bold hover:bg-[#C1A673] hover:text-[#0F1E38] transition-all duration-300">
-                <span className="uppercase tracking-widest text-sm">Invia candidatura</span>
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
+            
+            <div className="mt-16 pt-8 border-t border-gray-800 text-gray-500 text-sm">
+                Credit-One S.p.A. - Iscrizione OAM n. M12345 - P.IVA 12345678901
+            </div>
          </div>
       </section>
 
