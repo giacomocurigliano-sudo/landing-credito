@@ -18,18 +18,17 @@ export default function Home() {
       <header className="bg-white/95 backdrop-blur-md py-5 sticky top-0 z-50 border-b border-gray-100 shadow-sm transition-all duration-300">
         <div className="container mx-auto px-6 flex justify-between items-center">
           
-          {/* LOGO (Sinistra) */}
+          {/* LOGO - Versione Debug */}
           <div className="flex items-center">
              <Link href="/" className="flex items-center mr-8">
-                {/* Il file deve essere in cartella 'public' e chiamarsi 'logo.png' */}
-                <Image 
-                    src="/logo.png" 
+                {/* Usiamo il tag img classico per essere sicuri al 100% che lo carichi */}
+                <img 
+                    src="/brand.png" 
                     alt="Credit-One Logo" 
-                    width={160} 
-                    height={50} 
                     className="h-10 w-auto object-contain" 
-                    priority 
                 />
+                {/* Se l'immagine non si carica, mostriamo il testo come riserva */}
+                <span className="ml-2 text-xl font-extrabold text-[#0F1E38] md:hidden">CREDIT-ONE</span>
              </Link>
           </div>
 
