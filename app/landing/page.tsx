@@ -3,22 +3,8 @@
 import { useState, useEffect } from "react";
 import Script from "next/script";
 
-export default function LandingCreditOne2025() {
-  const [selectedIrs, setSelectedIrs] = useState("IRS 10 anni");
-  const [selectedYear, setSelectedYear] = useState("2025");
+export default function LandingMicrocredito2025() {
   const [euribor, setEuribor] = useState({ e1m: "3.842%", e3m: "3.895%" });
-
-  // Dati simulati basati sulle rilevazioni ufficiali 2025
-  const [tableData] = useState([
-    { date: "2025-12-12", value: "2.220%" },
-    { date: "2025-12-11", value: "2.220%" },
-    { date: "2025-12-10", value: "2.220%" },
-    { date: "2025-12-09", value: "2.210%" },
-    { date: "2025-12-08", value: "2.210%" },
-  ]);
-
-  const years = ["2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018"];
-  const irsTerms = Array.from({ length: 50 }, (_, i) => `IRS ${i + 1} ann${i === 0 ? 'o' : 'i'}`);
 
   return (
     <div className="antialiased bg-[#F8F9FA] text-[#0F1E38] font-sans w-full overflow-x-hidden">
@@ -27,7 +13,7 @@ export default function LandingCreditOne2025() {
         strategy="afterInteractive"
       />
 
-      {/* 1. TICKER INDICI LIVE */}
+      {/* 1. TICKER LIVE INDICES */}
       <div className="w-full bg-white border-b border-gray-200 py-2 sticky top-0 z-50 shadow-sm overflow-x-auto">
         <div className="container mx-auto px-4 flex items-center justify-between min-w-[700px] md:min-w-full lg:justify-center lg:gap-12">
           <div className="flex items-center gap-2">
@@ -37,144 +23,198 @@ export default function LandingCreditOne2025() {
           <div className="text-xs font-medium">Euribor 1M: <span className="text-[#9E1B32] font-bold">{euribor.e1m}</span></div>
           <div className="text-xs font-medium border-x border-gray-100 px-6">Euribor 3M: <span className="text-[#9E1B32] font-bold">{euribor.e3m}</span></div>
           <div className="text-xs font-medium">IRS 1Y: <span className="text-[#C1A673] font-bold">2.220%</span></div>
-          <div className="text-xs font-medium text-gray-400">Aggiornato al: 16/12/2025</div>
+          <div className="text-xs font-medium text-gray-400">Aggiornato: {new Date().toLocaleDateString()}</div>
         </div>
       </div>
 
-      {/* 2. HERO: DOPPIO BINARIO FINANZIARIO */}
-      <section className="relative py-12 md:py-24 bg-white overflow-hidden">
-        <div className="container mx-auto px-4 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6 text-center lg:text-left">
-            <div className="inline-block px-3 py-1 bg-[#9E1B32]/10 text-[#9E1B32] rounded-full text-[10px] font-bold uppercase tracking-widest">
-                Nuova Normativa 2025
+      {/* 2. HERO SECTION */}
+      <section className="relative py-16 md:py-24 bg-white overflow-hidden">
+        <div className="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8 text-center lg:text-left">
+            <div className="inline-block px-4 py-1 bg-[#9E1B32]/10 text-[#9E1B32] rounded-full text-[11px] font-bold uppercase tracking-widest">
+                Garanzia Pubblica MCC 80%
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight">
-              Microcredito fino a <span className="text-[#9E1B32]">100k</span> <br/>
-              e Ridotto fino a <span className="text-[#C1A673]">40k</span>
+            <h1 className="text-4xl md:text-6xl font-black leading-tight">
+              Ottieni fino a <span className="text-[#9E1B32]">140.000€</span> <br/>
+              per la tua Impresa
             </h1>
-            <p className="text-lg text-gray-500 max-w-xl mx-auto lg:mx-0 border-l-4 border-[#9E1B32] pl-6">
-              Sblocca il potenziale della tua impresa con le soluzioni agevolate di <strong>Credit-One S.p.A.</strong> Garanzia dello Stato e iter semplificato per una liquidità reale.
+            <p className="text-lg text-gray-500 max-w-xl mx-auto lg:mx-0 border-l-4 border-[#C1A673] pl-6">
+              Il finanziamento che cambia le regole: <strong>100% Digitale</strong>, senza garanzie reali e con esito in 48 ore.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 pt-6">
-              <a href="#dettagli" className="bg-[#9E1B32] text-white px-10 py-4 rounded-xl font-bold uppercase text-sm shadow-xl hover:scale-105 transition-transform text-center">
-                Richiedi Fattibilità
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a href="#form" className="bg-[#9E1B32] text-white px-10 py-5 rounded-xl font-bold uppercase text-sm shadow-xl hover:bg-[#7a1224] transition-all">
+                Richiedi Finanziamento Ora
               </a>
             </div>
+            <p className="text-sm text-gray-400 italic">Compila il form: sarai ricontattato entro 24 ore</p>
           </div>
 
-          {/* BOX TECNICO RIASSUNTIVO */}
-          <div className="bg-[#0F1E38] p-8 rounded-3xl text-white shadow-2xl relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-[#9E1B32] opacity-10 blur-3xl group-hover:opacity-30 transition-opacity"></div>
-            <h3 className="text-[#C1A673] font-bold uppercase tracking-tighter text-sm mb-6">Speciale Agevolazioni 2025</h3>
+          <div className="bg-[#0F1E38] p-10 rounded-[2.5rem] text-white shadow-2xl relative">
+            <div className="space-y-8">
+              <div>
+                <p className="text-[#C1A673] font-bold text-3xl">€ 100.000</p>
+                <p className="text-xs uppercase tracking-widest text-gray-400">Microcredito Imprenditoriale</p>
+              </div>
+              <div className="border-t border-white/10 pt-6">
+                <p className="text-white font-bold text-3xl">+ € 40.000</p>
+                <p className="text-xs uppercase tracking-widest text-gray-400">Finanziamento Ridotto</p>
+              </div>
+              <div className="bg-white/5 p-4 rounded-xl border border-white/10">
+                 <p className="text-sm leading-relaxed">
+                   "Immagina un supporto concreto <strong>senza essere schiacciato dalla burocrazia</strong>."
+                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. COSA È IL MICROCREDITO */}
+      <section className="py-24 bg-[#F8F9FA]">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16">
+            <div>
+              <h2 className="text-3xl font-black mb-6 uppercase tracking-tighter">Cosa è il <span className="text-[#9E1B32]">Microcredito</span>?</h2>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                È uno strumento assistito dalla garanzia del <strong>Fondo Centrale di Garanzia (FGC)</strong> per favorire l'accesso finanziario alle microimprese. 
+                È regolato dal D.Lgs 385/1993 (Art. 111) e dal Decreto MEF 176/2014.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white p-4 rounded-xl shadow-sm">
+                  <p className="text-[#9E1B32] font-bold text-xl">3-10 Anni</p>
+                  <p className="text-[10px] uppercase text-gray-400">Durata flessibile</p>
+                </div>
+                <div className="bg-white p-4 rounded-xl shadow-sm">
+                  <p className="text-[#C1A673] font-bold text-xl">80%</p>
+                  <p className="text-[10px] uppercase text-gray-400">Garanzia Statale</p>
+                </div>
+              </div>
+            </div>
+
             <div className="space-y-6">
-              <div className="flex justify-between border-b border-white/10 pb-4">
-                <div>
-                  <p className="font-bold text-xl">100.000€</p>
-                  <p className="text-[10px] text-gray-400 uppercase">Microcredito Imprenditoriale</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-green-400 font-bold">MCC 80%</p>
-                  <p className="text-[10px] text-gray-400 uppercase">Garanzia Statale</p>
-                </div>
-              </div>
-              <div className="flex justify-between">
-                <div>
-                  <p className="font-bold text-xl">40.000€</p>
-                  <p className="text-[10px] text-gray-400 uppercase">Finanziamento Ridotto</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-[#C1A673] font-bold">Fast Track</p>
-                  <p className="text-[10px] text-gray-400 uppercase">Iter Semplificato</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. INFO SEZIONE: DETTAGLI NORMATIVI */}
-      <section id="dettagli" className="py-20 bg-[#F8F9FA]">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-              <h4 className="text-[#9E1B32] font-black text-2xl mb-4 uppercase">Microcredito 100k</h4>
-              <ul className="space-y-4 text-gray-600 text-sm">
-                <li className="flex gap-3"><strong>Destinatari:</strong> Start-up, PMI e Professionisti attivi da meno di 5 anni.</li>
-                <li className="flex gap-3"><strong>Garanzia:</strong> Copertura del Fondo di Garanzia PMI fino all'80% dell'importo.</li>
-                <li className="flex gap-3"><strong>Finalità:</strong> Acquisto beni/servizi, pagamento retribuzioni, corsi di formazione.</li>
-              </ul>
-            </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-              <h4 className="text-[#C1A673] font-black text-2xl mb-4 uppercase">Finanziamento Ridotto 40k</h4>
-              <ul className="space-y-4 text-gray-600 text-sm">
-                <li className="flex gap-3"><strong>Velocità:</strong> Documentazione minima e tempi di risposta entro 48 ore lavorative.</li>
-                <li className="flex gap-3"><strong>Flessibilità:</strong> Ideale per piccoli investimenti, scorte o liquidità immediata.</li>
-                <li className="flex gap-3"><strong>Vantaggio:</strong> Non sono richieste garanzie reali (ipoteche) sui beni personali.</li>
+              <h3 className="text-xl font-bold uppercase">Finalità del Finanziamento</h3>
+              <ul className="space-y-4">
+                {[
+                  "Acquisto beni e servizi (inclusi canoni leasing)",
+                  "Costi per corsi di formazione",
+                  "Pagamento retribuzioni nuovi dipendenti o soci",
+                  "Copertura capitale circolante e liquidità"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-sm text-gray-600 bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                    <span className="w-2 h-2 bg-[#C1A673] rounded-full"></span> {item}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. TABELLA IRS DINAMICA */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-10">
-              <h2 className="text-3xl font-bold">Indici <span className="text-[#9E1B32]">IRS</span> Storico 2018-2025</h2>
-              <p className="text-gray-400 text-sm mt-2">Dati aggiornati per la valutazione dell'impatto finanziario.</p>
+      {/* 4. PERCHÉ È DIVERSO (VANTAGGI) */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-6">
+          <h2 className="text-center text-3xl font-black mb-16 uppercase">Perché scegliere la <span className="text-[#9E1B32]">Microfinanza Intelligente</span>?</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="p-8 bg-[#F8F9FA] rounded-3xl border border-gray-100 hover:shadow-xl transition-all">
+              <div className="text-3xl mb-4">🛡️</div>
+              <h4 className="font-bold mb-3 uppercase">Zero Garanzie Reali</h4>
+              <p className="text-sm text-gray-500">Non sono richieste ipoteche, pegni o fideiussioni personali. Lo Stato garantisce per te fino all'80%.</p>
             </div>
-            
-            <div className="bg-white rounded-3xl p-6 border border-gray-100 shadow-xl">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                <select value={selectedIrs} onChange={(e) => setSelectedIrs(e.target.value)} className="bg-gray-50 border-none rounded-xl p-3 text-sm font-bold">
-                  {irsTerms.map(t => <option key={t}>{t}</option>)}
-                </select>
-                <select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)} className="bg-gray-50 border-none rounded-xl p-3 text-sm font-bold">
-                  {years.map(y => <option key={y}>{y}</option>)}
-                </select>
-              </div>
-
-              <div className="overflow-x-auto rounded-xl">
-                <table className="w-full text-left">
-                  <thead className="bg-[#0F1E38] text-white">
-                    <tr>
-                      <th className="p-4 text-[10px] uppercase font-bold">Data Rilevazione</th>
-                      <th className="p-4 text-[10px] uppercase font-bold text-right">Valore {selectedIrs}</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-50">
-                    {tableData.map((row, i) => (
-                      <tr key={i} className="text-sm hover:bg-gray-50 transition-colors">
-                        <td className="p-4 text-gray-500">{row.date}</td>
-                        <td className="p-4 text-right font-bold text-[#9E1B32]">{row.value}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+            <div className="p-8 bg-[#F8F9FA] rounded-3xl border border-gray-100 hover:shadow-xl transition-all">
+              <div className="text-3xl mb-4">📱</div>
+              <h4 className="font-bold mb-3 uppercase">100% Digitale</h4>
+              <p className="text-sm text-gray-500">Firma con OTP su piattaforma certificata. Caricamento documenti semplice e guidato.</p>
+            </div>
+            <div className="p-8 bg-[#F8F9FA] rounded-3xl border border-gray-100 hover:shadow-xl transition-all">
+              <div className="text-3xl mb-4">👨‍🏫</div>
+              <h4 className="font-bold mb-3 uppercase">Tutoraggio Incluso</h4>
+              <p className="text-sm text-gray-500">Supporto gratuito pre e post erogazione. Accompagnamento strategico nei primi 3 anni.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 5. FOOTER / CTA */}
-      <section className="py-20 bg-[#0F1E38] text-center text-white">
-        <div className="container mx-auto px-4">
-          <h3 className="text-3xl font-bold mb-8">Gestiamo la tua pratica con successo.</h3>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a href="tel:0640060271" className="bg-[#9E1B32] px-10 py-4 rounded-xl font-bold uppercase text-sm w-full sm:w-auto">
-              Sede di Roma: 06 40060271
-            </a>
-            <a href="mailto:mail@credit-one.it" className="border border-white/20 px-10 py-4 rounded-xl font-bold uppercase text-sm w-full sm:w-auto hover:bg-white/5">
-              Email Specialistica
-            </a>
-          </div>
-          <div className="mt-12 text-[10px] text-gray-500">
-            Credit-One S.p.A. | Mediazione Creditizia | P.IVA 13410651000 | Iscrizione OAM n. M409
+      {/* 5. A CHI È RIVOLTO */}
+      <section className="py-24 bg-[#0F1E38] text-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-black mb-12 uppercase">A chi è rivolto?</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {[
+                "Microimprese",
+                "PMI",
+                "Professionisti",
+                "Start-up"
+              ].map((target, i) => (
+                <div key={i} className="bg-white/5 border border-white/10 p-6 rounded-2xl">
+                  <p className="font-bold text-sm uppercase text-[#C1A673]">{target}</p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-12 text-sm text-gray-400">
+               Ideale per imprese costituite da meno di 5 anni (per microcredito puro) e Partite IVA attive.
+            </p>
           </div>
         </div>
       </section>
+
+      {/* 6. DOCUMENTI & PROCESSO */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-16">
+          <div>
+            <h3 className="text-2xl font-black mb-8 uppercase">Processo Semplice</h3>
+            <div className="space-y-8">
+              {[
+                { s: "Compila l'intervista", d: "Il cuore della tua richiesta" },
+                { s: "Firma Digitale", d: "Modulistica privacy e antiriciclaggio" },
+                { s: "Invia PDF", d: "Semplice, rapido, chiaro" },
+                { s: "Verifica 48h", d: "Avvio rapido dell'istruttoria" },
+                { s: "Erogazione", d: "Fondi direttamente sul tuo conto aziendale" }
+              ].map((step, i) => (
+                <div key={i} className="flex gap-4">
+                  <div className="font-black text-[#9E1B32] text-xl">0{i+1}</div>
+                  <div>
+                    <h5 className="font-bold uppercase text-sm">{step.s}</h5>
+                    <p className="text-xs text-gray-400">{step.d}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="bg-[#F8F9FA] p-8 rounded-3xl border border-gray-100">
+            <h3 className="text-xl font-bold mb-6 uppercase">Documenti Necessari</h3>
+            <ul className="grid grid-cols-1 gap-3 text-xs text-gray-600">
+              <li className="bg-white p-3 rounded-lg shadow-sm">ID + Codice Fiscale</li>
+              <li className="bg-white p-3 rounded-lg shadow-sm">Visura Camerale (max 3 mesi)</li>
+              <li className="bg-white p-3 rounded-lg shadow-sm">Attribuzione Partita IVA</li>
+              <li className="bg-white p-3 rounded-lg shadow-sm">Ultime 2 Dichiarazioni Redditi</li>
+              <li className="bg-white p-3 rounded-lg shadow-sm">Situazione Contabile Aggiornata</li>
+              <li className="bg-white p-3 rounded-lg shadow-sm">Preventivi degli investimenti</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. CTA FINALE */}
+      <section id="form" className="py-24 bg-white border-t border-gray-100 text-center">
+        <div className="container mx-auto px-6 max-w-3xl">
+          <h2 className="text-4xl font-black mb-6 uppercase tracking-tight">Pronto al primo passo?</h2>
+          <p className="text-gray-500 mb-12">I fondi sono limitati. Gestiamo 100 abilitazioni al mese. Chi prima agisce, ottiene.</p>
+          <div className="bg-[#9E1B32] text-white p-10 rounded-[3rem] shadow-2xl hover:scale-[1.02] transition-transform">
+             <h3 className="text-2xl font-bold mb-4">RICHIEDI ORA IL FINANZIAMENTO</h3>
+             <p className="text-sm opacity-80 mb-8 uppercase tracking-widest font-bold">Esito gratuito e senza impegno</p>
+             <button className="bg-white text-[#9E1B32] px-12 py-5 rounded-full font-black text-sm uppercase tracking-widest shadow-xl">
+               Inizia la richiesta
+             </button>
+          </div>
+          <div className="mt-20 pt-12 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-400 uppercase font-bold tracking-[0.2em] gap-4">
+             <div>Credit-One S.p.A.</div>
+             <div>OAM: M409 | P.IVA 13410651000</div>
+             <div>Tutte le condizioni su credit-one.it</div>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }
