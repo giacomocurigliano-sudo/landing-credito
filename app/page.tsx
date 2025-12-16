@@ -20,7 +20,10 @@ export default function Home() {
           
           {/* Logo Mobile */}
           <div className="flex items-center md:hidden">
-             <span className="text-xl font-extrabold tracking-tighter text-[#0F1E38]">CREDIT-ONE</span>
+            {/* LOGO (Visibile sia su Mobile che Desktop) */}
+          <Link href="/" className="flex items-center mr-8">
+             <Image src="/logo.png" alt="Logo" width={160} height={50} className="h-10 w-auto object-contain" priority />
+          </Link>
           </div>
 
           {/* MENU DESKTOP CENTRATO */}

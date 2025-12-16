@@ -17,9 +17,10 @@ export default function Home() {
       <header className="bg-white py-6 sticky top-0 z-50 border-b border-gray-100 shadow-sm">
         <div className="container mx-auto px-4 flex justify-between items-center">
           
-          {/* Logo Mobile (Visibile solo su cellulare) */}
-          <div className="flex items-center md:hidden">
-             <span className="text-xl font-extrabold text-[#0F1E38]">CREDIT-ONE</span>
+          {/* LOGO (Visibile sia su Mobile che Desktop) */}
+          <Link href="/" className="flex items-center mr-8">
+             <Image src="/logo.png" alt="Logo" width={160} height={50} className="h-10 w-auto object-contain" priority />
+          </Link>
           </div>
 
           {/* MENU DESKTOP CENTRATO */}
