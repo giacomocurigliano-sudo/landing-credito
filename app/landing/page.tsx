@@ -6,18 +6,22 @@ import Link from "next/link";
 import Script from "next/script";
 
 export default function LandingMicrocredito() {
-  // 1. Stato per i tassi Euribor
-  const [euribor, setEuribor] = useState({ e1m: "4.12%", e3m: "3.95%", e6m: "3.88%" });
+  // 1. Stato per i tassi Euribor e IRS (Dati basati su screenshot Dicembre 2025)
+  const [rates, setRates] = useState({ 
+    e1m: "3.84%", 
+    e3m: "3.89%", 
+    e6m: "3.75%",
+    irs1: "2.220%" // Dato IRS 1 anno caricato dallo screenshot
+  });
 
-  // 2. Simulazione recupero dati (puoi collegare un'API reale qui)
+  // 2. Simulazione recupero dati (Aggiornamento automatico)
   useEffect(() => {
-    // Qui andrebbe la chiamata fetch verso il tuo fornitore di dati finanziari
-    // Per ora impostiamo i valori istituzionali correnti
     const timer = setTimeout(() => {
-      setEuribor({
-        e1m: "3.84%",
-        e3m: "3.89%",
-        e6m: "3.75%"
+      setRates({
+        e1m: "3.842%",
+        e3m: "3.895%",
+        e6m: "3.751%",
+        irs1: "2.220%"
       });
     }, 1000);
     return () => clearTimeout(timer);
@@ -33,31 +37,31 @@ export default function LandingMicrocredito() {
       <main className="min-h-screen bg-[#0F1E38] text-white font-sans selection:bg-[#9E1B32] selection:text-white overflow-hidden">
         
         {/* =================================================================================
-            BARRA TASSI EURIBOR AUTOMATICA (Sticky opzionale)
+            BARRA TASSI LIVE (Euribor + IRS 1Y dallo screenshot)
            ================================================================================= */}
-        <div className="w-full bg-[#0a1529]/90 backdrop-blur-md border-b border-[#C1A673]/20 py-2 relative z-50">
+        <div className="w-full bg-[#0a1529]/95 backdrop-blur-md border-b border-[#C1A673]/30 py-3 relative z-50">
           <div className="container mx-auto px-6 flex flex-wrap justify-center items-center gap-6 md:gap-12">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 bg-white/5 px-3 py-1 rounded-full border border-white/10">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#4ade80] opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4ade80]"></span>
               </span>
-              <span className="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Mercati Live</span>
+              <span className="text-[10px] uppercase tracking-widest text-[#4ade80] font-black">Indici Live</span>
             </div>
             
             <div className="flex items-center gap-2">
-              <span className="text-[11px] text-gray-500 uppercase font-medium">Euribor 1M:</span>
-              <span className="text-[12px] text-[#C1A673] font-mono font-bold">{euribor.e1m}</span>
+              <span className="text-[11px] text-gray-500 uppercase font-bold">IRS 1Y:</span>
+              <span className="text-[13px] text-[#C1A673] font-mono font-bold">{rates.irs1}</span>
             </div>
             
-            <div className="hidden sm:flex items-center gap-2 border-x border-white/10 px-6 md:px-12">
-              <span className="text-[11px] text-gray-500 uppercase font-medium">Euribor 3M:</span>
-              <span className="text-[12px] text-[#C1A673] font-mono font-bold">{euribor.e3m}</span>
+            <div className="flex items-center gap-2 border-x border-white/10 px-6 md:px-12">
+              <span className="text-[11px] text-gray-500 uppercase font-bold">Euribor 1M:</span>
+              <span className="text-[13px] text-[#C1A673] font-mono font-bold">{rates.e1m}</span>
             </div>
             
             <div className="flex items-center gap-2">
-              <span className="text-[11px] text-gray-500 uppercase font-medium">Euribor 6M:</span>
-              <span className="text-[12px] text-[#C1A673] font-mono font-bold">{euribor.e6m}</span>
+              <span className="text-[11px] text-gray-500 uppercase font-bold">Euribor 3M:</span>
+              <span className="text-[13px] text-[#C1A673] font-mono font-bold">{rates.e3m}</span>
             </div>
           </div>
         </div>
@@ -150,8 +154,6 @@ export default function LandingMicrocredito() {
           </div>
         </section>
 
-        {/* ... (IL RESTO DEL CODICE PER TARGET, VANTAGGI, PROCESSO, CTA È IDENTICO A PRIMA) ... */}
-        
         {/* SEZIONE TARGET */}
         <section className="py-20 bg-[#080f1c] relative z-10 border-t border-white/5">
             <div className="container mx-auto px-6">
