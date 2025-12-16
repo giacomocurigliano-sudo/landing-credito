@@ -1,8 +1,35 @@
-import Link from "next/link";
+"use client"; // Importante per usare useRef e useEffect
 
-export default function LandingPage() {
+import Image from "next/image";
+import Link from "next/link";
+import { useRef, useEffect } from "react";
+
+// NOTA: Se la build fallisce su questa riga, cambia l'import con: 
+// import 'iframe-resizer/js/iframeResizer.contentWindow';
+// Ma per ora manteniamo la logica del tuo snippet:
+import { iframeResizer } from 'iframe-resizer';
+
+export default function LandingHomeCreditOne() {
+  
+  // Hook per attivare la comunicazione con WordPress
+  const mainRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    if (mainRef.current) {
+      try {
+        // Inizializza il ridimensionamento
+        // checkOrigin: false è spesso necessario per evitare blocchi tra domini diversi
+        iframeResizer({ log: false, checkOrigin: false }, mainRef.current);
+      } catch (e) {
+        console.log("Iframe Resizer non attivo (stai visualizzando la pagina direttamente?)");
+      }
+    }
+  }, []);
+
+  // Nota: Aggiungi ref={mainRef} al tag <div> che avvolge <main>
   return (
-    <main className="min-h-screen bg-white text-[#0F1E38] font-sans selection:bg-[#C1A673] selection:text-white">
+    <div ref={mainRef}> 
+      <main className="min-h-screen bg-white text-[#0F1E38] font-sans selection:bg-[#C1A673] selection:text-white overflow-hidden">
       
       {/* =================================================================================
           1. HERO SECTION
@@ -16,7 +43,7 @@ export default function LandingPage() {
         </div>
 
         <div className="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
+          <div className="space-y-8 animate-fade-in-up">
             <div className="inline-flex items-center gap-2 px-3 py-1 border border-[#C1A673] text-[#C1A673] rounded text-xs font-bold tracking-widest uppercase">
                 <span className="w-2 h-2 bg-[#C1A673] rounded-full"></span>
                 Mediazione Creditizia
@@ -39,10 +66,10 @@ export default function LandingPage() {
           
           {/* PLACEHOLDER IMMAGINE HERO / ROBOT */}
           <div className="hidden md:flex items-center justify-center">
-              <div className="w-[400px] h-[400px] bg-white/10 backdrop-blur-sm border-2 border-dashed border-white/30 rounded-3xl flex flex-col items-center justify-center text-white/50">
+              <div className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-white/10 backdrop-blur-sm border-2 border-dashed border-white/30 rounded-3xl flex flex-col items-center justify-center text-white/50">
                   <span className="text-4xl mb-2">🖼️</span>
-                  <span className="font-bold">QUI FOTO HERO/ROBOT</span>
-                  <span className="text-xs">(Inserisci file in public e usa Next/Image)</span>
+                  <span className="font-bold">FOTO HERO</span>
+                  <span className="text-xs text-center px-4">(Inserisci file in public e usa Next/Image)</span>
               </div>
           </div>
         </div>
@@ -105,7 +132,7 @@ export default function LandingPage() {
       </section>
 
       {/* =================================================================================
-          3. STATISTICHE (Senza immagine di sfondo per sicurezza)
+          3. STATISTICHE
          ================================================================================= */}
       <section className="py-24 bg-[#0F1E38] text-center text-white">
         <div className="container mx-auto px-6">
@@ -133,7 +160,7 @@ export default function LandingPage() {
       </section>
 
       {/* =================================================================================
-          4. VIDEO & QUOTE (Placeholder)
+          4. VIDEO & QUOTE
          ================================================================================= */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
@@ -142,7 +169,7 @@ export default function LandingPage() {
             {/* VIDEO PLACEHOLDER */}
             <div className="w-full lg:w-1/2 bg-black/90 rounded-2xl flex items-center justify-center min-h-[300px] border-4 border-gray-100">
                  <div className="text-center">
-                    <div className="w-16 h-16 bg-[#D32F2F] rounded-full flex items-center justify-center mx-auto mb-4 cursor-pointer">
+                    <div className="w-16 h-16 bg-[#D32F2F] rounded-full flex items-center justify-center mx-auto mb-4 cursor-pointer hover:scale-110 transition-transform">
                         <span className="text-white text-2xl">▶</span>
                     </div>
                     <span className="text-white font-bold uppercase tracking-widest">Guarda Video</span>
@@ -165,7 +192,7 @@ export default function LandingPage() {
       </section>
 
       {/* =================================================================================
-          5. NEWS (Placeholder Immagini)
+          5. NEWS (Placeholder)
          ================================================================================= */}
       <section className="py-24 bg-gray-50">
         <div className="container mx-auto px-6">
@@ -176,10 +203,10 @@ export default function LandingPage() {
                      <div key={i} className="bg-white rounded-xl shadow-sm overflow-hidden">
                         {/* Placeholder Immagine News */}
                         <div className="h-48 bg-gray-300 flex items-center justify-center text-gray-500 font-bold border-b border-gray-100">
-                            IMG NEWS {i}
+                            FOTO NEWS {i}
                         </div>
                         <div className="p-6">
-                            <h3 className="font-bold text-lg text-[#0F1E38] mb-3">Titolo Notizia Finanziaria Importante</h3>
+                            <h3 className="font-bold text-lg text-[#0F1E38] mb-3">Titolo Notizia Finanziaria</h3>
                             <p className="text-gray-500 text-sm mb-4">Descrizione breve della notizia per attirare l'attenzione del lettore...</p>
                             <span className="text-[#D32F2F] font-bold text-sm uppercase cursor-pointer">Leggi tutto →</span>
                         </div>
@@ -214,6 +241,7 @@ export default function LandingPage() {
          </div>
       </section>
 
-    </main>
+      </main>
+    </div>
   );
 }
