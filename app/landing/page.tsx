@@ -2,25 +2,21 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useEffect } from "react";
-import { iframeResizer } from 'iframe-resizer';
+import Script from "next/script"; // Importiamo il gestore script di Next.js
 
 export default function LandingMicrocredito() {
   
-  const mainRef = useRef<HTMLDivElement>(null);
-  
-  useEffect(() => {
-    if (mainRef.current) {
-      try {
-        iframeResizer({ log: false, checkOrigin: false }, mainRef.current);
-      } catch (e) {
-        console.log("Resizer info: visualizzazione diretta.");
-      }
-    }
-  }, []);
-
   return (
-    <div ref={mainRef} className="antialiased"> 
+    <div className="antialiased"> 
+      {/* QUESTO SCRIPT FA LA MAGIA: 
+          Carica la libreria di ridimensionamento direttamente da internet.
+          Nessuna installazione necessaria. Risolve l'errore di build.
+      */}
+      <Script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.9/iframeResizer.contentWindow.min.js" 
+        strategy="afterInteractive"
+      />
+
       <main className="min-h-screen bg-[#0F1E38] text-white font-sans selection:bg-[#9E1B32] selection:text-white overflow-hidden">
       
       {/* =================================================================================
