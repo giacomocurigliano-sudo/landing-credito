@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-// Assicurati che il file CalcolatoreRata.tsx sia nella cartella components
+// Assicurati che il file CalcolatoreRata.tsx esista in components
 import CalcolatoreRata from "@/components/CalcolatoreRata"; 
 
 export default function Home() {
@@ -13,17 +13,24 @@ export default function Home() {
     <main className="min-h-screen bg-gray-50 text-[#0F1E38] font-sans selection:bg-[#C1A673] selection:text-white">
       
       {/* =================================================================================
-          1. HEADER "CREDIT-ONE STYLE" (Esattamente come richiesto)
+          1. HEADER "CREDIT-ONE STYLE"
          ================================================================================= */}
       <header className="bg-white/95 backdrop-blur-md py-5 sticky top-0 z-50 border-b border-gray-100 shadow-sm transition-all duration-300">
         <div className="container mx-auto px-6 flex justify-between items-center">
           
-          {/* Logo Mobile */}
-          <div className="flex items-center md:hidden">
-            {/* LOGO (Visibile sia su Mobile che Desktop) */}
-          <Link href="/" className="flex items-center mr-8">
-             <Image src="/logo.png" alt="Logo" width={160} height={50} className="h-10 w-auto object-contain" priority />
-          </Link>
+          {/* LOGO (Visibile a Sinistra su Mobile e Desktop) */}
+          <div className="flex items-center">
+             <Link href="/" className="flex items-center mr-8">
+                 {/* Assicurati di avere logo.png in public */}
+                <Image 
+                    src="/logo.png" 
+                    alt="Logo" 
+                    width={160} 
+                    height={50} 
+                    className="h-10 w-auto object-contain" 
+                    priority 
+                />
+             </Link>
           </div>
 
           {/* MENU DESKTOP CENTRATO */}
@@ -91,7 +98,7 @@ export default function Home() {
          ================================================================================= */}
       <section className="relative bg-gradient-to-br from-[#0F1E38] via-[#162a4d] to-[#0a1529] text-white py-20 lg:py-32 overflow-hidden">
         
-        {/* Decorazione Sfondo (Cerchi sfumati) */}
+        {/* Decorazione Sfondo */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
             <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#C1A673] rounded-full blur-3xl mix-blend-overlay"></div>
             <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-500 rounded-full blur-3xl mix-blend-overlay opacity-50"></div>
@@ -133,7 +140,6 @@ export default function Home() {
             {/* Calcolatore Fluttuante */}
             <div className="lg:w-1/2 w-full">
                 <div className="relative">
-                    {/* Effetto ombra dietro il calcolatore */}
                     <div className="absolute inset-0 bg-[#C1A673] blur-2xl opacity-20 transform rotate-3 scale-95 rounded-3xl"></div>
                     <div className="relative transform hover:-translate-y-2 transition-transform duration-500">
                         <CalcolatoreRata />
@@ -146,7 +152,7 @@ export default function Home() {
       </section>
 
       {/* =================================================================================
-          3. STATS BAR (La prova sociale)
+          3. STATS BAR
          ================================================================================= */}
       <section className="bg-[#0F1E38] border-t border-white/10 py-10">
         <div className="container mx-auto px-6">
@@ -172,7 +178,7 @@ export default function Home() {
       </section>
 
       {/* =================================================================================
-          4. SERVIZI (Cards Eleganti)
+          4. SERVIZI
          ================================================================================= */}
       <section id="servizi" className="py-24 bg-gray-50 container mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
@@ -212,7 +218,7 @@ export default function Home() {
       </section>
 
       {/* =================================================================================
-          5. CHI SIAMO (Design Asimmetrico)
+          5. CHI SIAMO
          ================================================================================= */}
       <section className="py-24 bg-white relative">
         <div className="container mx-auto px-6">
@@ -225,7 +231,6 @@ export default function Home() {
                     {/* Placeholder per immagine */}
                     <div className="relative bg-gray-100 h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl flex items-center justify-center border border-gray-200">
                          <span className="text-gray-400 font-medium">Foto Team / Ufficio</span>
-                         {/* Quando avrai la foto: <Image src="/team.jpg" fill className="object-cover" /> */}
                     </div>
                 </div>
 
@@ -265,7 +270,7 @@ export default function Home() {
       </section>
 
       {/* =================================================================================
-          6. FOOTER FINTECH
+          6. FOOTER
          ================================================================================= */}
       <footer className="bg-[#0F1E38] text-white pt-20 pb-10 border-t border-gray-800">
         <div className="container mx-auto px-6">
